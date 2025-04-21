@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To My Love, Cavin</title>
+  <style>
+    body {
+      background: #1e1e2f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+      height: 100vh;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      animation: pulse 1s infinite;
+      margin: 50px auto 20px;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50px 50px 0 0;
+    }
+
+    .heart::before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    h1 {
+      font-size: 22px;
+      padding: 0 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #ff1e45;
+    }
+
+    .floating-name {
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff99cc;
+      animation: floatAround 12s infinite linear;
+      z-index: 10;
+    }
+
+    @keyframes floatAround {
+      0%   { top: 0; left: 0; }
+      25%  { top: 0; left: 80%; }
+      50%  { top: 80%; left: 80%; }
+      75%  { top: 80%; left: 0; }
+      100% { top: 0; left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart"></div>
+
+  <h1>Dear Cavin, you are the melody to my heart,<br>
+    the dream I never want to wake up from. Please help today and reply.
+  Don't just keep quiet or laugh.</h1>
+
+  <button onclick="replyToBaguma()">Reply on WhatsApp</button><br>
+  <button onclick="sendEmailToBaguma()">Send Email to Gerald</button>
+
+  <div class="floating-name">Cavin</div>
+
+  <script>
+    function replyToBaguma() {
+      const phone = "256746338947";
+      const message = encodeURIComponent("Hey Gerald, I love you too!. With Love from Cavin");
+      const url = `https://wa.me/${phone}?text=${message}`;
+      window.location.href = url;
+    }
+
+    function sendEmailToBaguma() {
+      const email = "baguma.gerald@stud.umu.ac.ug";
+      const subject = encodeURIComponent("With Love from Cavin");
+      const body = encodeURIComponent("Hi Baguma, just wanted to say I love you too. Forever yours, Cavin.");
+      const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+    }
+  </script>
+
+</body>
+</html>
